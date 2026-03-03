@@ -31,32 +31,31 @@ public class Radio {
     }
 
     public void increaseRadioStation() {
-        if (currentRadioStation < 9) {
-            currentRadioStation = currentRadioStation + 1;
+        if (currentRadioStation != 9) {
+            currentRadioStation++;
+            return;
         }
-        if (currentRadioStation == 9) {
-            currentRadioStation = 0;
-        }
+        currentRadioStation = 0;
     }
 
     public void reducingRadioStation() {
-        if (currentRadioStation > 0) {
-            currentRadioStation = currentRadioStation - 1;
+        if (currentRadioStation != 0) {
+            currentRadioStation--;
+            return;
         }
-        if (currentRadioStation == 0) {
-            currentRadioStation = 9;
-        }
+        currentRadioStation = 9;
     }
 
     public void increaseVolume() {
-        if (currentVolume < 100) {
-            currentVolume = currentVolume + 1;
+        if (currentVolume != 100) {
+            currentVolume++;
         }
+
     }
 
     public void reducingVolume() {
-        if (currentVolume > 0) {
-            currentVolume = currentVolume - 1;
+        if (currentVolume != 0) {
+            currentVolume--;
         }
     }
 
