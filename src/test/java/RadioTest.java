@@ -31,6 +31,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     void setValuesRadioStationBoundaryMoreMax() {
         Radio radio = new Radio();
@@ -141,6 +142,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     void EnteringValuesVolumeBoundaryMoreMax() {
         Radio radio = new Radio();
@@ -160,6 +162,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     void EnteringValuesVolumeBoundaryLessMin() {
         Radio radio = new Radio();
@@ -185,7 +188,7 @@ public class RadioTest {
     @Test
     void increaseRadioStationСurrentStation8() {
         Radio radio = new Radio();
-       radio.setCurrentRadioStation(8);
+        radio.setCurrentRadioStation(8);
         radio.increaseRadioStation();
         int expected = 9;
         int actual = radio.getCurrentRadioStation();
