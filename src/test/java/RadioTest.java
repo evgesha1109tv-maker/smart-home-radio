@@ -405,6 +405,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     void reducingStationСurrentStationMaxStationCountStation1() {
         Radio radio = new Radio(1);
