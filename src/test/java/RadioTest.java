@@ -393,4 +393,94 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
+    //Тесты к flexible
+    @Test
+    void reducingStationСurrentStationMaxStationCountStationless0() {
+        Radio radio = new Radio(-50);
+        radio.setCurrentRadioStation(radio.getMaxStation());
+        radio.reducingRadioStation();
+        int expected = 8;
+        int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void reducingStationСurrentStationMaxStationCountStation1() {
+        Radio radio = new Radio(1);
+        radio.setCurrentRadioStation(radio.getMaxStation());
+        radio.reducingRadioStation();
+        int expected = 0;
+        int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void increaseStationСurrentStation1MaxStation49() {
+        Radio radio = new Radio(50);
+        radio.setCurrentRadioStation(1);
+        radio.increaseRadioStation();
+        int expected = 2;
+        int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void increaseStationСurrentStation49MaxStation49() {
+        Radio radio = new Radio(50);
+        radio.setCurrentRadioStation(49);
+        radio.increaseRadioStation();
+        int expected = 0;
+        int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void increaseStationСurrentStation0MaxStation49() {
+        Radio radio = new Radio(50);
+        radio.setCurrentRadioStation(0);
+        radio.increaseRadioStation();
+        int expected = 1;
+        int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void reducingStationСurrentStation0MaxStation49() {
+        Radio radio = new Radio(50);
+        radio.setCurrentRadioStation(0);
+        radio.reducingRadioStation();
+        int expected = 49;
+        int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void reducingStationСurrentStation49MaxStation49() {
+        Radio radio = new Radio(50);
+        radio.setCurrentRadioStation(49);
+        radio.reducingRadioStation();
+        int expected = 48;
+        int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void reducingStationСurrentStation5MaxStation49() {
+        Radio radio = new Radio(50);
+        radio.setCurrentRadioStation(5);
+        radio.reducingRadioStation();
+        int expected = 4;
+        int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
 }
