@@ -8,8 +8,8 @@ public class Radio {
     }
 
     public Radio(int countStation) {
-        if (countStation<1){
-            countStation=10;
+        if (countStation < 1) {
+            countStation = 10;
         }
         this.maxStation = countStation - 1;
     }
