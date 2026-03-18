@@ -1,37 +1,49 @@
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
 public class Radio {
+    @Setter
     private int currentRadioStation;
+
     private int currentVolume;
+    private int maxStation;
+    private int countStation;
 
-    public int getCurrentRadioStation() {
-        return currentRadioStation;
+    public Radio() {
+        this.maxStation = 9;
     }
 
-    public void setCurrentRadioStation(int newCurrentRadioStation) {
-        if (newCurrentRadioStation < 0) {
-            return;
+    public Radio(int countStation) {
+        if (countStation < 1) {
+            countStation = 10;
         }
-        if (newCurrentRadioStation > 9) {
-            return;
-        }
-        currentRadioStation = newCurrentRadioStation;
+        this.countStation = countStation;
+        this.maxStation = countStation - 1;
     }
 
-    public int getCurrentVolume() {
-        return currentVolume;
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume < 0) {
+            return;
+        }
+        if (currentVolume > 100) {
+            return;
+        }
+        this.currentVolume = currentVolume;
     }
 
-    public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 0) {
+    public void setCurrentRadioStation(int currentRadioStation) {
+        if (currentRadioStation < 0) {
             return;
         }
-        if (newCurrentVolume > 100) {
+        if (currentRadioStation > maxStation) {
             return;
         }
-        currentVolume = newCurrentVolume;
+        this.currentRadioStation = currentRadioStation;
     }
 
     public void increaseRadioStation() {
-        if (currentRadioStation != 9) {
+        if (currentRadioStation != maxStation) {
             currentRadioStation++;
             return;
         }
@@ -43,14 +55,13 @@ public class Radio {
             currentRadioStation--;
             return;
         }
-        currentRadioStation = 9;
+        currentRadioStation = maxStation;
     }
 
     public void increaseVolume() {
         if (currentVolume != 100) {
             currentVolume++;
         }
-
     }
 
     public void reducingVolume() {
@@ -58,5 +69,4 @@ public class Radio {
             currentVolume--;
         }
     }
-
 }
